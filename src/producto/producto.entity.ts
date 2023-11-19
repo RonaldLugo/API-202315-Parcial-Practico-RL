@@ -1,4 +1,4 @@
-import { TiendaEntitity } from 'src/tienda/tienda.entitity';
+import { TiendaEntity } from '../tienda/tienda.entity';
 import {
   Column,
   Entity,
@@ -13,9 +13,9 @@ export enum Tipo {
 }
 
 @Entity()
-export class ProductoEntitity {
-  @PrimaryGeneratedColumn()
-  id: number;
+export class ProductoEntity {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @Column()
   nombre: string;
@@ -24,13 +24,13 @@ export class ProductoEntitity {
   precio: number;
 
   @Column({
-    type: 'enum',
+    type: 'simple-enum',
     enum: Tipo,
     default: Tipo.NOPERECEDERO,
   })
   tipo: Tipo;
 
-  @ManyToMany(() => TiendaEntitity, (tienda) => tienda.productos)
+  @ManyToMany(() => TiendaEntity, (tienda) => tienda.productos)
   @JoinTable()
-  tiendas: TiendaEntitity[];
+  tiendas: TiendaEntity[];
 }

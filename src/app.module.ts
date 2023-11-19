@@ -5,8 +5,8 @@ import { ProductoModule } from './producto/producto.module';
 import { TiendaModule } from './tienda/tienda.module';
 import { ProductoTiendaModule } from './producto-tienda/producto-tienda.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ProductoEntitity } from './producto/producto.entitity';
-import { TiendaEntitity } from './tienda/tienda.entitity';
+import { ProductoEntity } from './producto/producto.entity';
+import { TiendaEntity } from './tienda/tienda.entity';
 
 @Module({
   imports: [
@@ -20,7 +20,7 @@ import { TiendaEntitity } from './tienda/tienda.entitity';
       username: 'postgres',
       password: 'postgres',
       database: 'tiendas',
-      entities: [ProductoEntitity, TiendaEntitity],
+      entities: [ProductoEntity, TiendaEntity],
       dropSchema: true,
       synchronize: true,
       keepConnectionAlive: true,
