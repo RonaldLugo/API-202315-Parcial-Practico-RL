@@ -95,7 +95,7 @@ describe('TiendaService', () => {
     };
     await expect(() => service.create(tienda)).rejects.toHaveProperty(
       'type',
-      BusinessError.NOT_FOUND,
+      BusinessError.PRECONDITION_FAILED,
     );
   });
 
@@ -135,7 +135,7 @@ describe('TiendaService', () => {
     tienda.ciudad = faker.location.city() /* sin 3 caracteres */;
     await expect(() =>
       service.update(tienda.id, tienda),
-    ).rejects.toHaveProperty('type', BusinessError.NOT_FOUND);
+    ).rejects.toHaveProperty('type', BusinessError.PRECONDITION_FAILED);
   });
 
   it('delete should remove a tienda', async () => {

@@ -1,4 +1,4 @@
-import { IsDecimal, IsNotEmpty, IsString } from 'class-validator';
+import { IsDecimal, IsEnum, IsNotEmpty, IsString } from 'class-validator';
 import { Tipo } from './producto.entity';
 export class ProductoDto {
   @IsString()
@@ -9,6 +9,7 @@ export class ProductoDto {
   @IsNotEmpty()
   readonly precio: number;
 
+  @IsEnum(Tipo)
   @IsNotEmpty()
-  readonly Tipo: Tipo;
+  readonly tipo: Tipo;
 }

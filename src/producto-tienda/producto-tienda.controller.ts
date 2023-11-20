@@ -21,7 +21,7 @@ import { TiendaDto } from 'src/tienda/tienda.dto';
 export class ProductoTiendaController {
   constructor(private readonly productoTiendaService: ProductoTiendaService) {}
 
-  @Post(':productoId/tiendas/:tiendaId')
+  @Post(':productoId/stores/:tiendaId')
   async addStoreToProduct(
     @Param('productoId') productoId: string,
     @Param('tiendaId') tiendaId: string,
@@ -32,7 +32,7 @@ export class ProductoTiendaController {
     );
   }
 
-  @Get(':productoId/tiendas/:tiendaId')
+  @Get(':productoId/stores/:tiendaId')
   async findStoreFromProduct(
     @Param('productoId') productoId: string,
     @Param('tiendaId') tiendaId: string,
@@ -43,12 +43,12 @@ export class ProductoTiendaController {
     );
   }
 
-  @Get(':productoId/tiendas')
+  @Get(':productoId/stores')
   async findStoresFromProduct(@Param('productoId') productoId: string) {
     return await this.productoTiendaService.findStoresFromProduct(productoId);
   }
 
-  @Put(':productoId/tiendas')
+  @Put(':productoId/stores')
   async updateStoresFromProduct(
     @Body() tiendasDto: TiendaDto[],
     @Param('productoId') productoId: string,
@@ -60,7 +60,7 @@ export class ProductoTiendaController {
     );
   }
 
-  @Delete(':productoId/tiendas/:tiendaId')
+  @Delete(':productoId/stores/:tiendaId')
   @HttpCode(HttpStatus.NO_CONTENT)
   async deleteStoresFromProduct(
     @Param('productoId') productoId: string,

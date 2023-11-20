@@ -38,7 +38,7 @@ export class TiendaService {
     if (tienda.ciudad.length != 3) {
       throw new BusinessLogicException(
         `La ciudad no tiene el código de 3 caracteres`,
-        BusinessError.NOT_FOUND,
+        BusinessError.PRECONDITION_FAILED,
       );
     }
     return await this.tiendaRepository.save(tienda);
@@ -56,7 +56,7 @@ export class TiendaService {
     if (tienda.ciudad.length != 3) {
       throw new BusinessLogicException(
         `La ciudad no tiene el código de 3 caracteres`,
-        BusinessError.NOT_FOUND,
+        BusinessError.PRECONDITION_FAILED,
       );
     }
 

@@ -66,10 +66,7 @@ describe('ProductoTiendaService', () => {
 
     await expect(() =>
       service.addStoreToProduct(newProducto.id, '0'),
-    ).rejects.toHaveProperty(
-      'message',
-      'The tienda with the given id was not found',
-    );
+    ).rejects.toHaveProperty('message', `La tienda con id 0 no existe`);
   });
 
   it('addStoreToProduct should throw an exception for an invalid producto', async () => {
@@ -81,10 +78,7 @@ describe('ProductoTiendaService', () => {
 
     await expect(() =>
       service.addStoreToProduct('0', newTienda.id),
-    ).rejects.toHaveProperty(
-      'message',
-      'The producto with the given id was not found',
-    );
+    ).rejects.toHaveProperty('message', `El producto con id 0 no existe`);
   });
 
   it('findStoreFromProduct should return tienda by producto', async () => {
@@ -102,20 +96,14 @@ describe('ProductoTiendaService', () => {
   it('findStoreFromProduct should throw an exception for an invalid tienda', async () => {
     await expect(() =>
       service.findStoreFromProduct(producto.id, '0'),
-    ).rejects.toHaveProperty(
-      'message',
-      'The tienda with the given id was not found',
-    );
+    ).rejects.toHaveProperty('message', `La tienda con id 0 no existe`);
   });
 
   it('findStoreFromProduct should throw an exception for an invalid producto', async () => {
     const tienda: TiendaEntity = tiendasList[0];
     await expect(() =>
       service.findStoreFromProduct('0', tienda.id),
-    ).rejects.toHaveProperty(
-      'message',
-      'The producto with the given id was not found',
-    );
+    ).rejects.toHaveProperty('message', `El producto con id 0 no existe`);
   });
 
   it('findStoreFromProduct should throw an exception for an tienda not associated to the producto', async () => {
@@ -129,7 +117,7 @@ describe('ProductoTiendaService', () => {
       service.findStoreFromProduct(producto.id, newTienda.id),
     ).rejects.toHaveProperty(
       'message',
-      'The tienda with the given id is not associated to the producto',
+      `La tienda no está asociada con el producto`,
     );
   });
 
@@ -143,10 +131,7 @@ describe('ProductoTiendaService', () => {
   it('findStoresFromProduct should throw an exception for an invalid producto', async () => {
     await expect(() =>
       service.findStoresFromProduct('0'),
-    ).rejects.toHaveProperty(
-      'message',
-      'The producto with the given id was not found',
-    );
+    ).rejects.toHaveProperty('message', `El producto con id 0 no existe`);
   });
 
   it('updateStoresFromProduct should update tiendas list for a producto', async () => {
@@ -174,10 +159,7 @@ describe('ProductoTiendaService', () => {
 
     await expect(() =>
       service.updateStoresFromProduct('0', [newTienda]),
-    ).rejects.toHaveProperty(
-      'message',
-      'The producto with the given id was not found',
-    );
+    ).rejects.toHaveProperty('message', `El producto con id 0 no existe`);
   });
 
   it('updateStoresFromProduct should throw an exception for an invalid tienda', async () => {
@@ -188,7 +170,7 @@ describe('ProductoTiendaService', () => {
       service.updateStoresFromProduct(producto.id, [newTienda]),
     ).rejects.toHaveProperty(
       'message',
-      'The tienda with the given id was not found',
+      `La tienda con id ${newTienda.id} no existe`,
     );
   });
 
@@ -211,20 +193,14 @@ describe('ProductoTiendaService', () => {
   it('deleteStoreFromProduct should thrown an exception for an invalid tienda', async () => {
     await expect(() =>
       service.deleteStoreFromProduct(producto.id, '0'),
-    ).rejects.toHaveProperty(
-      'message',
-      'The tienda with the given id was not found',
-    );
+    ).rejects.toHaveProperty('message', `La tienda con id 0 no existe`);
   });
 
   it('deleteStoreFromProduct should thrown an exception for an invalid producto', async () => {
     const tienda: TiendaEntity = tiendasList[0];
     await expect(() =>
       service.deleteStoreFromProduct('0', tienda.id),
-    ).rejects.toHaveProperty(
-      'message',
-      'The producto with the given id was not found',
-    );
+    ).rejects.toHaveProperty('message', `El producto con id 0 no existe`);
   });
 
   it('deleteStoreFromProduct should thrown an exception for an non asocciated tienda', async () => {
@@ -238,7 +214,7 @@ describe('ProductoTiendaService', () => {
       service.deleteStoreFromProduct(producto.id, newTienda.id),
     ).rejects.toHaveProperty(
       'message',
-      'The tienda with the given id is not associated to the producto',
+      `La tienda no está asociada con el producto`,
     );
   });
 });

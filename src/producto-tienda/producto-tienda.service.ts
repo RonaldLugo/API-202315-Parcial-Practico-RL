@@ -27,7 +27,7 @@ export class ProductoTiendaService {
     });
     if (!tienda)
       throw new BusinessLogicException(
-        'The tienda with the given id was not found',
+        `La tienda con id ${tiendaId} no existe`,
         BusinessError.NOT_FOUND,
       );
 
@@ -37,7 +37,7 @@ export class ProductoTiendaService {
     });
     if (!producto)
       throw new BusinessLogicException(
-        'The producto with the given id was not found',
+        `El producto con id ${productoId} no existe`,
         BusinessError.NOT_FOUND,
       );
 
@@ -54,7 +54,7 @@ export class ProductoTiendaService {
     });
     if (!tienda)
       throw new BusinessLogicException(
-        'The tienda with the given id was not found',
+        `La tienda con id ${tiendaId} no existe`,
         BusinessError.NOT_FOUND,
       );
 
@@ -64,7 +64,7 @@ export class ProductoTiendaService {
     });
     if (!producto)
       throw new BusinessLogicException(
-        'The producto with the given id was not found',
+        `El producto con id ${productoId} no existe`,
         BusinessError.NOT_FOUND,
       );
 
@@ -74,7 +74,7 @@ export class ProductoTiendaService {
 
     if (!productoTienda)
       throw new BusinessLogicException(
-        'The tienda with the given id is not associated to the producto',
+        `La tienda no está asociada con el producto`,
         BusinessError.PRECONDITION_FAILED,
       );
 
@@ -88,7 +88,7 @@ export class ProductoTiendaService {
     });
     if (!producto)
       throw new BusinessLogicException(
-        'The producto with the given id was not found',
+        `El producto con id ${productoId} no existe`,
         BusinessError.NOT_FOUND,
       );
 
@@ -106,7 +106,7 @@ export class ProductoTiendaService {
 
     if (!producto)
       throw new BusinessLogicException(
-        'The producto with the given id was not found',
+        `El producto con id ${productoId} no existe`,
         BusinessError.NOT_FOUND,
       );
 
@@ -116,7 +116,7 @@ export class ProductoTiendaService {
       });
       if (!tienda)
         throw new BusinessLogicException(
-          'The tienda with the given id was not found',
+          `La tienda con id ${tiendas[i].id} no existe`,
           BusinessError.NOT_FOUND,
         );
     }
@@ -131,7 +131,7 @@ export class ProductoTiendaService {
     });
     if (!tienda)
       throw new BusinessLogicException(
-        'The tienda with the given id was not found',
+        `La tienda con id ${tiendaId} no existe`,
         BusinessError.NOT_FOUND,
       );
 
@@ -141,7 +141,7 @@ export class ProductoTiendaService {
     });
     if (!producto)
       throw new BusinessLogicException(
-        'The producto with the given id was not found',
+        `El producto con id ${productoId} no existe`,
         BusinessError.NOT_FOUND,
       );
 
@@ -151,7 +151,7 @@ export class ProductoTiendaService {
 
     if (!productoTienda)
       throw new BusinessLogicException(
-        'The tienda with the given id is not associated to the producto',
+        `La tienda no está asociada con el producto`,
         BusinessError.PRECONDITION_FAILED,
       );
 
